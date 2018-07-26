@@ -1,0 +1,31 @@
+{
+  "name": "fantasycompanionapi",
+  "version": "0.0.0",
+  "description": "Backend api for fantasy companion app",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ONeill45/FantasyCompanionApi.git"
+  },
+  "author": "Scott Dougherty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ONeill45/FantasyCompanionApi/issues"
+  },
+  "homepage": "https://github.com/ONeill45/FantasyCompanionApi#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongodb": "^3.1.1",
+    "msnodesqlv8": "^0.6.7",
+    "mssql": "^4.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
