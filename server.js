@@ -64,21 +64,22 @@ app.get("/api/GamePlayers", function(req, res) {
 var request = require("request");
 const apiKey = "xi1bBWh2TrszX38OVmU7L0dKgjMZtaIJ";
 
-app.get("/api/players/", function(req, res) {
-  console.log("yep im here");
-  request.post("https://profootballapi.com/players", {
-    form: {
-      api_key: "xi1bBWh2TrszX38OVmU7L0dKgjMZtaIJ",
-      stats_type: "offense",
-      player_name: "a.dalton"
-    },
-    function(error, response, body) {
-      if (error) {
-        console.log(error);
-      } else if (response.statusCode == 200) {
-        console.log("200!");
-        res(body);
+app.get("/api/players/:firstName-:lastName", function(req, res) {
+  const requestData = {
+    api_key: "xi1bBWh2TrszX38OVmU7L0dKgjMZtaIJ",
+    stats_type: "offense",
+    player_name:
+      req.params.firstName.substring(0, 1) + "." + req.params.lastName
+  };
+  request.post(
+    { url: "https://profootballapi.com/players", formData: requestData },
+    function(err, httpResponse, body) {
+      if (err) {
+        console.log(err);
+      } else if (httpResponse.statusCode == 200) {
+        res.send(body);
       }
     }
-  });
+  );
 });
+//example of above: http://localhost:8000/api/players/tom-brady
