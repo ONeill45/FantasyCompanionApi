@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "dev": "nodemon server.js",
-    "start": "node ./bin/www"
+    "start": "node ./startup/www"
   },
   "repository": {
     "type": "git",

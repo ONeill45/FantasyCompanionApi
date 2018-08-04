@@ -3,7 +3,6 @@ const apiKey = "xi1bBWh2TrszX38OVmU7L0dKgjMZtaIJ";
 
 //example: http://localhost:8000/api/players/tom-brady
 exports.player_stats_by_year = function(req, res) {
-  console.log("playerController");
   const requestData = {
     api_key: apiKey,
     stats_type: "offense",
