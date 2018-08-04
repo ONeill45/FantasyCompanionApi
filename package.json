@@ -1,12 +1,12 @@
 {
   "name": "fantasycompanionapi",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Backend api for fantasy companion app",
   "main": "server.js",
   "scripts": {
     "test": "test",
     "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
     "express": "^4.16.3",
+    "jade": "^1.11.0",
     "mongodb": "^3.1.1",
     "msnodesqlv8": "^0.6.7",
     "mssql": "^4.1.0",

@@ -1,12 +1,25 @@
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
 const compression = require("compression");
-const player = require("./routes/player");
+
+const playerRouter = require("./routes/player");
+const indexRouter = require("./routes/index");
 
 const app = express();
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "jade");
+
 app.use(bodyParser.json());
 app.use(compression());
-app.use("/api/player/", player);
+app.use("/", indexRouter);
+app.use("/player", playerRouter);
+
+// var server = app.listen(process.env.PORT || 8000, () => {
+//   let port = server.address().port;
+//   console.log("We are live on " + port);
+// });
 
 module.exports = app;
 
