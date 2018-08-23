@@ -44,14 +44,31 @@ exports.add_player_to_database = function(req, res) {
         );
 
         // get recent game data
+        const recentGames = [];
+        const recentGamesHTML = cheerio.load(
+          $("#player-stats-wrapper")
+            .children()
+            .first()
+            .children("tbody")
+        );
+        const firstTr = recentGamesHTML(".CINLink")
+          .last()
+          .text();
 
         // get career stats data
+        const careerStats = [];
+        const careerStatsHTML = $("#player-stats-wrapper")
+          .children()
+          .last();
+
+        // return new player
         const endTime = new Date();
         const elapsedTime = (endTime - startTime) / 1000;
         res.render("response", {
           title: "Add Player Response",
           elapsedTime: elapsedTime,
-          response: JSON.stringify(newPlayer)
+          response: recentGamesHTML
+          // response: JSON.stringify(newPlayer)
         });
       } else {
         console.log("error:", error);
